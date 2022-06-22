@@ -1,0 +1,218 @@
+.post {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	&__title {
+		margin-top: 140px;
+		font-family: 'Nunito';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 40px;
+	}
+}
+
+.form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+  &__button {
+    margin-top: 64px;
+    margin-bottom: 100px;
+    border: none;
+  }
+
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+
+	&__position {
+		align-self: start;
+		display: flex;
+		flex-direction: column;
+    margin-top: 24px;
+
+    &-title {
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 26px;
+    }
+	}
+
+  &__field {
+	position: relative;
+	font-weight: 400;
+	font-size: 16px;
+	font-family: 'Nunito';
+	line-height: 26px;
+	padding-top: 20px;
+
+	& input {
+		border: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background-color: #F8F8F8;
+		padding: 12px;
+		border-radius: 3px;
+		width: 380px;
+		height: 54px;
+		outline: none;
+		font-weight: 400;
+		font-size: 16px;
+		font-family: 'Nunito';
+		line-height: 26px;
+		border: 1px solid #aaa;
+
+		&:valid + .placeholder,
+		&:focus + .placeholder {
+			top: 20px;
+			font-size: 12px;
+			padding:  0px 5px;
+			background-color: #F8F8F8;
+		}
+	}
+
+  &-error input{
+    border-color: red;
+  }
+
+	& .placeholder {
+		position: absolute;
+		left: 12px;
+		top: calc(50% + 10px);
+		transform: translateY(-50%);
+		color: #aaa;
+	
+		transition: 
+		top 0.3s ease,
+		top 0.3s ease,
+		top 0.3s ease;
+	}
+
+  & .placeholder-error {
+    color: red
+  }
+
+		&:not(:first-child) {
+			margin-top: 28px;
+		}
+	}
+  
+  input, input::before, input::after {
+    box-sizing: border-box;
+    }
+}
+
+  
+
+  .radio {
+    position: relative;
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+   
+
+
+    &__input {
+      -webkit-appearance: none;
+      appearance: none;
+      position: absolute;
+    }
+
+    &__label {
+      padding-left: 32px;
+      font-size: 16px;
+      color: #aaa;
+      
+      cursor: pointer;
+  
+      &::before {
+        content: "";
+        display: block;
+        width: 18px;
+        height: 18px;
+  
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+  
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+  
+      &::after {
+        content: "";
+        display: block;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+        background-color: aqua;
+        border-radius: 50%;
+  
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        z-index: 2;
+      }
+
+     
+    }
+    
+  }
+  .radio__input:checked + .radio__label::before {
+    border-color: aquamarine;
+  }
+
+  .radio__input:checked + .radio__label::after {
+    opacity: 1;
+  }
+
+  .uploadLabel {
+    margin-top: 70px;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .uploadButton {
+    display: none;
+  }
+
+  .uploadText {
+    padding: 14px 15px;
+    border: 1px solid rgba(0, 0, 0, 0.87);
+    border-radius: 4px 0px 0px 4px;
+
+    &-error {
+      border-color: red;
+    }
+  }
+
+  .uploadText2 {
+    padding: 14px 147px 14px 16px;
+    border: 1px solid #aaa;
+    border-left: none;
+    border-radius: 0px 4px 4px 0px;
+
+    &-error {
+      border-color: red;
+    }
+  }
+
+  .error {
+    color: red;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
