@@ -64,7 +64,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                 <label
                   htmlFor="name"
                   className={classNames('form__field', {
-                    'form__field-error': errors.name,
+                    'form__field-error': touched.name && errors.name,
                   })}
                 >
                   <input
@@ -75,7 +75,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                     onBlur={handleBlur}
                   />
                   <span className={classNames('placeholder', {
-                    'placeholder-error': errors.name,
+                    'placeholder-error': touched.name && errors.name,
                   })}
                   >
                     Your name
@@ -87,7 +87,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                 <label
                   htmlFor="email"
                   className={classNames('form__field', {
-                    'form__field-error': errors.email,
+                    'form__field-error': touched.email && errors.email,
                   })}
                 >
                   <input
@@ -98,7 +98,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                     onBlur={handleBlur}
                   />
                   <span className={classNames('placeholder', {
-                    'placeholder-error': errors.email,
+                    'placeholder-error': touched.email && errors.email,
                   })}
                   >
                     Email
@@ -110,7 +110,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                 <label
                   htmlFor="phone"
                   className={classNames('form__field', {
-                    'form__field-error': errors.phone,
+                    'form__field-error': touched.phone && errors.phone,
                   })}
                 >
                   <input
@@ -121,7 +121,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                     onBlur={handleBlur}
                   />
                   <span className={classNames('placeholder', {
-                    'placeholder-error': errors.phone,
+                    'placeholder-error': touched.phone && errors.phone,
                   })}
                   >
                     Phone
@@ -162,13 +162,13 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                     }}
                   />
                   <span className={classNames('uploadText', {
-                    'uploadText-error': errors.photo,
+                    'uploadText-error': touched.photo && errors.photo,
                   })}
                   >
                     Upload
                   </span>
                   <span className={classNames('uploadText2', {
-                    'uploadText2-error': errors.photo,
+                    'uploadText2-error': touched.photo && errors.photo,
                   })}
                   >
                     {values.photo ? 'Photo is uploaded' : 'Upload your photo'}
