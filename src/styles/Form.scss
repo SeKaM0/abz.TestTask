@@ -37,6 +37,12 @@
 		display: flex;
 		flex-direction: column;
     margin-top: 24px;
+    position: relative;
+
+    &-error {
+      top: 145px;
+      left: 0px;
+    }
 
     &-title {
       font-family: 'Nunito';
@@ -48,13 +54,13 @@
 	}
 
   &__field {
-	position: relative;
-	font-weight: 400;
-	font-size: 16px;
-	font-family: 'Nunito';
-	line-height: 26px;
-	padding-top: 20px;
-  width: 100%;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: 'Nunito';
+    line-height: 26px;
+    padding-top: 20px;
+    width: 100%;
 
 	& input {
 		border: none;
@@ -182,6 +188,7 @@
   }
 
   .uploadLabel {
+    position: relative;
     margin-top: 70px;
     display: inline-block;
     cursor: pointer;
@@ -218,8 +225,13 @@
   }
 
   .error {
+    position: absolute;
     color: red;
     padding-bottom: 0;
     margin-bottom: 0;
     align-self: flex-start;
+  }
+
+  .field-error {
+    top: 60px;
   }

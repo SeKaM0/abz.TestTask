@@ -18,13 +18,13 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
   const validationSchema = yup.object().shape({
     name: yup.string().required('It`s required field').max(60, 'Not more than 60'),
     email: yup.string().email('Invalid email').required('It`s required field'),
-    phone: yup.string().matches(/(?:\+38)?(0\d{9})+/, 'Invalid phone number').required('It`s required field').max(13, 'Invalid phone number'),
+    phone: yup.string().matches(/(?:\+38)?(0\d{9})+/, 'Invalid phone number expected +380...').required('It`s required field').max(13, 'Invalid phone number length'),
     position: yup.string().required('It`s required field'),
     photo: yup.mixed().required('File is required'),
   });
 
   return (
-    <section className="post">
+    <section className="post" id="signUp">
       <div className="container">
         <h1 className="post__title">Working with POST request</h1>
         <div className="post__form form">
@@ -81,9 +81,8 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                   >
                     Your name
                   </span>
+                  {touched.name && errors.name && <p className="error field-error">{errors.name}</p>}
                 </label>
-
-                {touched.name && errors.name && <p className="error">{errors.name}</p>}
 
                 <label
                   htmlFor="email"
@@ -105,9 +104,8 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                   >
                     Email
                   </span>
+                  {touched.email && errors.email && <p className="error field-error">{errors.email}</p>}
                 </label>
-
-                {touched.email && errors.email && <p className="error">{errors.email}</p>}
 
                 <label
                   htmlFor="phone"
@@ -116,7 +114,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                   })}
                 >
                   <input
-                    type="text"
+                    type="tel"
                     id="phone"
                     value={values.phone}
                     onChange={handleChange}
@@ -129,9 +127,8 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                   >
                     Phone
                   </span>
+                  {touched.phone && errors.phone && <p className="error field-error">{errors.phone}</p>}
                 </label>
-
-                {touched.phone && errors.phone && <p className="error">{errors.phone}</p>}
 
                 <div className="form__position">
                   <span className="form__position-title">Select your position</span>
@@ -150,8 +147,9 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                       </label>
                     </div>
                   ))}
+                  {touched.position && errors.position && <p className="error form__position-error">{errors.position}</p>}
                 </div>
-                {touched.position && errors.position && <p className="error">{errors.position}</p>}
+
                 <label className="uploadLabel" htmlFor="photo">
                   <input
                     type="file"
@@ -176,9 +174,8 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                   >
                     {values.photo ? 'Photo is uploaded' : 'Upload your photo'}
                   </span>
+                  {touched.photo && errors.photo && <p className="error uploadLabel-error">{errors.photo}</p>}
                 </label>
-
-                {touched.photo && errors.photo && <p className="error">{errors.photo}</p>}
 
                 <button
                   type="submit"

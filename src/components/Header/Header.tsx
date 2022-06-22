@@ -9,10 +9,10 @@ export const Header: React.FC = () => {
         <nav className="nav">
           <ul className="nav__menu">
             <li className="nav__item">
-              <a href="#a" className="nav__link button">Users</a>
+              <a href="#users" className="nav__link button">Users</a>
             </li>
             <li className="nav__item">
-              <a href="#a" className="nav__link button">Sign up</a>
+              <a href="#signUp" className="nav__link button">Sign up</a>
             </li>
           </ul>
         </nav>

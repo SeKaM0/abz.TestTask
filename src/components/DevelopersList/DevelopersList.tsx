@@ -8,7 +8,7 @@ type Props = {
 
 export const DevelopersList: React.FC<Props> = ({ users, showMore, nextPage }) => {
   return (
-    <section className="devs">
+    <section className="devs" id="users">
       <div className="container">
         <h1 className="devs__title">Working with GET request</h1>
         <div className="devs__list">
