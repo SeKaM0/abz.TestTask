@@ -73,6 +73,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                     value={values.name}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    placeholder="Name"
                   />
                   <span className={classNames('placeholder', {
                     'placeholder-error': touched.name && errors.name,
@@ -96,6 +97,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    placeholder="Email"
                   />
                   <span className={classNames('placeholder', {
                     'placeholder-error': touched.email && errors.email,
@@ -119,6 +121,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                     value={values.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    placeholder="+380..."
                   />
                   <span className={classNames('placeholder', {
                     'placeholder-error': touched.phone && errors.phone,

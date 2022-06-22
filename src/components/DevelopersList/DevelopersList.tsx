@@ -15,10 +15,10 @@ export const DevelopersList: React.FC<Props> = ({ users, showMore, nextPage }) =
           {users.map(user => (
             <div className="devs__card card" key={user.id}>
               <img src={user.photo} alt={user.name} className="card__image" />
-              <p className="card__title">{user.name}</p>
+              <p className="card__title">{user.name.length > 40 ? `${user.name.substring(0, user.name.length / 2)}...` : user.name}</p>
               <div className="card__subtitle">
                 <p className="card__position">{user.position}</p>
-                <p className="card__email">{user.email}</p>
+                <p className="card__email">{user.email.length > 40 ? `${user.email.substring(0, user.email.length / 2)}...` : user.email}</p>
                 <p className="card__phone">{user.phone}</p>
               </div>
             </div>
