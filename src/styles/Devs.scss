@@ -19,19 +19,20 @@
     font-weight: 400;
     font-size: 40px;
     line-height: 40px;
-
+    text-align: center;
     color: rgba(0, 0, 0, 0.87);
   }
 
   &__list {
     display: grid;
     justify-content: center;
+    align-items: center;
     
     max-width: 944px;
     margin: 50px auto;
 
-    @media (min-width: 359px) {
-      grid-template-columns: repeat(1, 328px);
+    @media (min-width: 324px) {
+      grid-template-columns: repeat(1, 100%);
       grid-gap: 20px;
     }
   
@@ -64,7 +65,7 @@
   font-size: 16px;
   line-height: 26px;
   /* or 162% */
-  
+  align-self: start;
   text-align: center;
   
   /* Black 87 */

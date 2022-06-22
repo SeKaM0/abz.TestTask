@@ -53,11 +53,9 @@ export const App: React.FC = () => {
   return (
     <>
       <Header />
-      <div className="container">
-        <Intro />
-        {users && <DevelopersList users={users} showMore={showMore} nextPage={nextPage} />}
-        {userPosition && <Form positions={userPosition} updateUsers={updateUsers} />}
-      </div>
+      <Intro />
+      {users && <DevelopersList users={users} showMore={showMore} nextPage={nextPage} />}
+      {userPosition && <Form positions={userPosition} updateUsers={updateUsers} />}
     </>
   );
 };

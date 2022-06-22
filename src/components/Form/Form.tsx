@@ -25,168 +25,170 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
 
   return (
     <section className="post">
-      <h1 className="post__title">Working with POST request</h1>
-      <div className="post__form form">
-        <Formik
-          initialValues={{
-            name: '',
-            email: '',
-            phone: '',
-            position: '',
-            photo: '',
-          }}
-          validateOnBlur
-          validationSchema={validationSchema}
-          onSubmit={async (values) => {
-            const {
-              name, email, phone, photo, position,
-            } = values;
+      <div className="container">
+        <h1 className="post__title">Working with POST request</h1>
+        <div className="post__form form">
+          <Formik
+            initialValues={{
+              name: '',
+              email: '',
+              phone: '',
+              position: '',
+              photo: '',
+            }}
+            validateOnBlur
+            validationSchema={validationSchema}
+            onSubmit={async (values, action) => {
+              const {
+                name, email, phone, photo, position,
+              } = values;
 
-            const Data = new FormData();
+              const Data = new FormData();
 
-            Data.append('position_id', `${position}`);
-            Data.append('name', name);
-            Data.append('email', email);
-            Data.append('phone', phone);
-            Data.append('photo', photo);
+              Data.append('position_id', `${position}`);
+              Data.append('name', name);
+              Data.append('email', email);
+              Data.append('phone', phone);
+              Data.append('photo', photo);
 
-            await uploadUser(Data);
-            updateUsers();
-          }}
-        >
-          {({
-            setFieldValue,
-            values, errors, touched, handleChange, handleBlur, handleSubmit,
-          }) => (
-            <form onSubmit={handleSubmit} className="form__content">
-              <label
-                htmlFor="name"
-                className={classNames('form__field', {
-                  'form__field-error': errors.name,
-                })}
-              >
-                <input
-                  type="text"
-                  id="name"
-                  value={values.name}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                <span className={classNames('placeholder', {
-                  'placeholder-error': errors.name,
-                })}
+              await uploadUser(Data);
+              updateUsers();
+              action.resetForm();
+            }}
+          >
+            {({
+              setFieldValue,
+              values, errors, touched, handleChange, handleBlur, handleSubmit,
+            }) => (
+              <form onSubmit={handleSubmit} className="form__content">
+                <label
+                  htmlFor="name"
+                  className={classNames('form__field', {
+                    'form__field-error': errors.name,
+                  })}
                 >
-                  Your name
-                </span>
-              </label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={values.name}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  <span className={classNames('placeholder', {
+                    'placeholder-error': errors.name,
+                  })}
+                  >
+                    Your name
+                  </span>
+                </label>
 
-              {touched.name && errors.name && <p className="error">{errors.name}</p>}
+                {touched.name && errors.name && <p className="error">{errors.name}</p>}
 
-              <label
-                htmlFor="email"
-                className={classNames('form__field', {
-                  'form__field-error': errors.email,
-                })}
-              >
-                <input
-                  type="text"
-                  id="email"
-                  value={values.email}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                <span className={classNames('placeholder', {
-                  'placeholder-error': errors.email,
-                })}
+                <label
+                  htmlFor="email"
+                  className={classNames('form__field', {
+                    'form__field-error': errors.email,
+                  })}
                 >
-                  Email
-                </span>
-              </label>
+                  <input
+                    type="text"
+                    id="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  <span className={classNames('placeholder', {
+                    'placeholder-error': errors.email,
+                  })}
+                  >
+                    Email
+                  </span>
+                </label>
 
-              {touched.email && errors.email && <p className="error">{errors.email}</p>}
+                {touched.email && errors.email && <p className="error">{errors.email}</p>}
 
-              <label
-                htmlFor="phone"
-                className={classNames('form__field', {
-                  'form__field-error': errors.phone,
-                })}
-              >
-                <input
-                  type="text"
-                  id="phone"
-                  value={values.phone}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                <span className={classNames('placeholder', {
-                  'placeholder-error': errors.phone,
-                })}
+                <label
+                  htmlFor="phone"
+                  className={classNames('form__field', {
+                    'form__field-error': errors.phone,
+                  })}
                 >
-                  Phone
-                </span>
-              </label>
+                  <input
+                    type="text"
+                    id="phone"
+                    value={values.phone}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  <span className={classNames('placeholder', {
+                    'placeholder-error': errors.phone,
+                  })}
+                  >
+                    Phone
+                  </span>
+                </label>
 
-              {touched.phone && errors.phone && <p className="error">{errors.phone}</p>}
+                {touched.phone && errors.phone && <p className="error">{errors.phone}</p>}
 
-              <div className="form__position">
-                <span className="form__position-title">Select your position</span>
-                {positions.map(elem => (
-                  <div key={elem.id} className="radio">
-                    <Field
-                      type="radio"
-                      value={elem.id}
-                      id={elem.name}
-                      checked={+values.position === elem.id}
-                      className="radio__input"
-                      onChange={() => setFieldValue('position', elem.id)}
-                    />
-                    <label htmlFor={elem.name} className="radio__label">
-                      {elem.name}
-                    </label>
-                  </div>
-                ))}
-              </div>
-              {touched.position && errors.position && <p className="error">{errors.position}</p>}
-              <label className="uploadLabel" htmlFor="photo">
-                <input
-                  type="file"
-                  className="uploadButton"
-                  id="photo"
-                  name="photo"
-                  onChange={(event) => {
-                    if (event.target.files) {
-                      setFieldValue('photo', event.target.files[0]);
-                    }
-                  }}
-                />
-                <span className={classNames('uploadText', {
-                  'uploadText-error': errors.photo,
-                })}
+                <div className="form__position">
+                  <span className="form__position-title">Select your position</span>
+                  {positions.map(elem => (
+                    <div key={elem.id} className="radio">
+                      <Field
+                        type="radio"
+                        value={elem.id}
+                        id={elem.name}
+                        checked={+values.position === elem.id}
+                        className="radio__input"
+                        onChange={() => setFieldValue('position', elem.id)}
+                      />
+                      <label htmlFor={elem.name} className="radio__label">
+                        {elem.name}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+                {touched.position && errors.position && <p className="error">{errors.position}</p>}
+                <label className="uploadLabel" htmlFor="photo">
+                  <input
+                    type="file"
+                    className="uploadButton"
+                    id="photo"
+                    name="photo"
+                    onChange={(event) => {
+                      if (event.target.files) {
+                        setFieldValue('photo', event.target.files[0]);
+                      }
+                    }}
+                  />
+                  <span className={classNames('uploadText', {
+                    'uploadText-error': errors.photo,
+                  })}
+                  >
+                    Upload
+                  </span>
+                  <span className={classNames('uploadText2', {
+                    'uploadText2-error': errors.photo,
+                  })}
+                  >
+                    {values.photo ? 'Photo is uploaded' : 'Upload your photo'}
+                  </span>
+                </label>
+
+                {touched.photo && errors.photo && <p className="error">{errors.photo}</p>}
+
+                <button
+                  type="submit"
+                  className="button form__button"
                 >
-                  Upload
-                </span>
-                <span className={classNames('uploadText2', {
-                  'uploadText2-error': errors.photo,
-                })}
-                >
-                  {values.photo ? 'Photo is uploaded' : 'Upload your photo'}
-                </span>
-              </label>
+                  Sign up
+                </button>
+              </form>
+            )}
+          </Formik>
 
-              {touched.photo && errors.photo && <p className="error">{errors.photo}</p>}
-
-              <button
-                type="submit"
-                className="button form__button"
-              >
-                Sign up
-              </button>
-            </form>
-          )}
-        </Formik>
-
+        </div>
       </div>
-
     </section>
   );
 };
