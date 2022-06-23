@@ -13,7 +13,7 @@ export const Intro: React.FC = () => {
           They should also be excited to learn, as the world of Front-End
           Development keeps evolving.
         </p>
-        <a href="#q" className="intro__button button">
+        <a href="#signUp" className="intro__button button">
           Sign up
         </a>
       </div>

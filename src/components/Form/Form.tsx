@@ -15,12 +15,24 @@ type Props = {
 };
 
 export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
+  const SUPPORTED_FORMATS = [
+    'image/jpg',
+    'image/jpeg',
+  ];
+
   const validationSchema = yup.object().shape({
     name: yup.string().required('It`s required field').max(60, 'Not more than 60'),
     email: yup.string().email('Invalid email').required('It`s required field'),
     phone: yup.string().matches(/(?:\+38)?(0\d{9})+/, 'Invalid phone number expected +380...').required('It`s required field').max(13, 'Invalid phone number length'),
     position: yup.string().required('It`s required field'),
-    photo: yup.mixed().required('File is required'),
+    photo: yup
+      .mixed()
+      .required('A file is required')
+      .test(
+        'fileFormat',
+        'Unsupported Format expected jpg/jpeg',
+        value => value && SUPPORTED_FORMATS.includes(value.type),
+      ),
   });
 
   return (
