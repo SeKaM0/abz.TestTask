@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/abz.TestTask/static/css/main.00e32fa3.chunk.css",
+    "main.css": "/abz.TestTask/static/css/main.b560b0d1.chunk.css",
     "main.js": "/abz.TestTask/static/js/main.aec31861.chunk.js",
     "main.js.map": "/abz.TestTask/static/js/main.aec31861.chunk.js.map",
     "runtime-main.js": "/abz.TestTask/static/js/runtime-main.2135f3e6.js",
@@ -8,7 +8,7 @@
     "static/js/2.0ed14d75.chunk.js": "/abz.TestTask/static/js/2.0ed14d75.chunk.js",
     "static/js/2.0ed14d75.chunk.js.map": "/abz.TestTask/static/js/2.0ed14d75.chunk.js.map",
     "index.html": "/abz.TestTask/index.html",
-    "static/css/main.00e32fa3.chunk.css.map": "/abz.TestTask/static/css/main.00e32fa3.chunk.css.map",
+    "static/css/main.b560b0d1.chunk.css.map": "/abz.TestTask/static/css/main.b560b0d1.chunk.css.map",
     "static/js/2.0ed14d75.chunk.js.LICENSE.txt": "/abz.TestTask/static/js/2.0ed14d75.chunk.js.LICENSE.txt",
     "static/media/Logo.8bb55362.svg": "/abz.TestTask/static/media/Logo.8bb55362.svg",
     "static/media/main.scss": "/abz.TestTask/static/media/pexels-alexandr-podvalny-1227513.be7665f8.jpeg"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.2135f3e6.js",
     "static/js/2.0ed14d75.chunk.js",
-    "static/css/main.00e32fa3.chunk.css",
+    "static/css/main.b560b0d1.chunk.css",
     "static/js/main.aec31861.chunk.js"
   ]
 }

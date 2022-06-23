@@ -192,6 +192,7 @@ export const Form: React.FC<Props> = ({ positions, updateUsers }) => {
                 <button
                   type="submit"
                   className="button form__button"
+
                 >
                   Sign up
                 </button>
